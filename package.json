@@ -14,6 +14,6 @@
     "ts-node": "^9.0.0"
   },
   "scripts": {
-    "exec": "ts-node"
+    "exec": "ts-node --script-mode"
   }
 }

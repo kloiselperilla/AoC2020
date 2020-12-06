@@ -1,6 +1,6 @@
-import fs = require('fs')
+import * as fs from 'fs';
 
-export function readFileToListMapping<T>(filePath: string, splitOn: string, mapFunc: (string) => T): T[] {
+export function readFileToListMapping<T>(filePath: string, splitOn: string, mapFunc: (s: string) => T): T[] {
     const desiredList: T[] = fs.readFileSync(filePath, 'utf-8')
         .split(splitOn)
         .filter(Boolean)
