@@ -1,4 +1,4 @@
-import fs = require('fs')
+import * as fs from 'fs';
 
 const INPUT_PATH: string = './day2/input2'
 
@@ -8,7 +8,7 @@ class Password {
     targetLetter: string;
     password: string;
 
-    constructor(min, max, targetLetter, password) {
+    constructor(min: number, max: number, targetLetter: string, password: string) {
         this.min = min;
         this.max = max;
         this.targetLetter = targetLetter;
@@ -31,8 +31,8 @@ let passList: Password[] = fs.readFileSync(INPUT_PATH, 'utf-8')
     .split('\n')
     .filter(Boolean)
     .map((x: string) => {
-        const min = x.substring(0, x.indexOf('-'))
-        const max = x.substring(x.indexOf('-') + 1, x.indexOf(' '))
+        const min = parseInt(x.substring(0, x.indexOf('-')))
+        const max = parseInt(x.substring(x.indexOf('-') + 1, x.indexOf(' ')))
         const targetLetter = x.substring(x.indexOf(' ') + 1, x.indexOf(':'))
         const password = x.substring(x.indexOf(':') + 2)
         return new Password(min, max, targetLetter, password);

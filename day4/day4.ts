@@ -1,10 +1,10 @@
-import fs = require('fs')
+import * as fs from 'fs';
 import { readFileToListMapping } from '../util/parse'
 const INPUT_PATH = 'day4/input'
 
 class Passport {
     static REQUIRED_ATRS = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'];
-    static ATR_VALIDATORS = {
+    static ATR_VALIDATORS: { [key: string]: (f: string) => boolean} = {
         "byr": (f: string) => { return parseInt(f) >= 1920 && parseInt(f) <= 2002},
         "iyr": (f: string) => { return parseInt(f) >= 2010 && parseInt(f) <= 2020},
         "eyr": (f: string) => { return parseInt(f) >= 2020 && parseInt(f) <= 2030},
@@ -29,7 +29,7 @@ class Passport {
             return f.length === 9 && parseInt(f) < 1e10;
         },
     }
-    attributes: { [key: string]: string | number } = {}
+    attributes: { [key: string]: string } = {}
     validateWeak() {
         let isValid = true;
         Passport.REQUIRED_ATRS.forEach(atr => {

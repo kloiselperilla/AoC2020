@@ -1,4 +1,4 @@
-import fs = require('fs')
+import * as fs from 'fs';
 
 const INPUT_PATH: string = './day3/input'
 
@@ -9,7 +9,7 @@ class Position {
         this.x = x;
         this.y = y;
     }
-    move(dX, dY) {
+    move(dX: number, dY: number) {
         this.x += dX;
         this.y += dY;
     }

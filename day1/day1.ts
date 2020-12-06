@@ -1,4 +1,4 @@
-import fs = require("fs")
+import * as fs from "fs";
 
 const INPUT_PATH: string = './day1/input1a'
 

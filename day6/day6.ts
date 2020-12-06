@@ -23,10 +23,17 @@ function setListIntersection(setList: Set<string>[]): Set<string> {
 }
 
 function part1(inputList: string[]) {
-    console.log("Part 1:", inputList.map((i) => setOfAnswers(i).size).reduce((total, s: number) => total + s))
+    // A is faster (2.233ms vs 9.923ms) but B matches part2 more
+    console.time("A");
+    console.log("Part 1:", inputList.map((i) => setOfAnswers(i).size)
+        .reduce((total, s: number) => total + s))
+    console.timeEnd("A");
+
+    console.time("B");
     console.log("Part 1:", inputList.map(s => answerSetList(s))
         .map(setList => setListUnion(setList).size)
         .reduce((total, s: number) => total + s));
+    console.timeEnd("B");
 }
 
 function part2(inputList: string[]) {
