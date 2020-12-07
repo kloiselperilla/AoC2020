@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
       "target": "es2015",
+      "lib": ["es2020.string"],
     //   "allowJs": true,
     //   "skipLibCheck": true,
       "strict": true,

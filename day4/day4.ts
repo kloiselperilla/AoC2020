@@ -1,4 +1,3 @@
-import * as fs from 'fs';
 import { readFileToListMapping } from '../util/parse'
 const INPUT_PATH = 'day4/input'
 
